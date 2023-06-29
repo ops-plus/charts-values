@@ -1,0 +1,12 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    labels:
+      - dependencies
+    schedule:
+      interval: weekly
+      day: sunday
+    allow:
+      # Allow both direct and indirect updates for all packages
+      - dependency-type: "all"
