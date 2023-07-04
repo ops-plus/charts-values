@@ -1,3 +1,6 @@
+# Copyright VMware, Inc.
+# SPDX-License-Identifier: APACHE-2.0
+
 ## @section Global parameters
 ## Global Docker image parameters
 ## Please, note that this will override the image parameters, including dependencies, configured to use the global value
@@ -206,7 +209,7 @@ frontend:
   image:
     registry: docker.io
     repository: bitnami/nginx
-    tag: 1.25.1-debian-11-r1
+    tag: 1.25.1-debian-11-r6
     digest: ""
     ## Specify a imagePullPolicy
     ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
@@ -239,7 +242,7 @@ frontend:
   largeClientHeaderBuffers: "4 32k"
   ## @param frontend.replicaCount Number of frontend replicas to deploy
   ##
-  replicaCount: 2
+  replicaCount: 1
   ## @param frontend.updateStrategy.type Frontend deployment strategy type.
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
   ## e.g:
@@ -525,7 +528,7 @@ dashboard:
   image:
     registry: docker.io
     repository: bitnami/kubeapps-dashboard
-    tag: 2.7.0-debian-11-r22
+    tag: 2.8.0-debian-11-r0
     digest: ""
     ## Specify a imagePullPolicy
     ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
@@ -590,7 +593,7 @@ dashboard:
   # createNamespaceLabels:
   #   "managed-by": "kubeapps"
   createNamespaceLabels: {}
-  replicaCount: 2
+  replicaCount: 1
   ## @param dashboard.updateStrategy.type Dashboard deployment strategy type.
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
   ## e.g:
@@ -832,7 +835,7 @@ apprepository:
   image:
     registry: docker.io
     repository: bitnami/kubeapps-apprepository-controller
-    tag: 2.7.0-scratch-r1
+    tag: 2.8.0-scratch-r0
     digest: ""
     ## Specify a imagePullPolicy
     ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
@@ -859,7 +862,7 @@ apprepository:
   syncImage:
     registry: docker.io
     repository: bitnami/kubeapps-asset-syncer
-    tag: 2.7.0-scratch-r1
+    tag: 2.8.0-scratch-r0
     digest: ""
     ## Specify a imagePullPolicy
     ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
@@ -1143,7 +1146,7 @@ authProxy:
   image:
     registry: docker.io
     repository: bitnami/oauth2-proxy
-    tag: 7.4.0-debian-11-r79
+    tag: 7.4.0-debian-11-r84
     digest: ""
     ## Specify a imagePullPolicy
     ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
@@ -1591,7 +1594,7 @@ kubeappsapis:
     pullSecrets: []
   ## @param kubeappsapis.replicaCount Number of frontend replicas to deploy
   ##
-  replicaCount: 2
+  replicaCount: 1
   ## @param kubeappsapis.updateStrategy.type KubeappsAPIs deployment strategy type.
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
   ## e.g:
@@ -1911,3 +1914,4 @@ redis:
       ## @param redis.replica.persistence.enabled Enable Redis&reg; replica data persistence using PVC
       ##
       enabled: false
+
