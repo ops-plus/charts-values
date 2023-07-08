@@ -5,17 +5,17 @@ description = "Render the values file of the Helm chart based on environment var
 authors = ["rogerogers <rogers@rogerogers.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "charts_values"}]
+packages = [{ include = "charts_values" }]
 
 [tool.poetry.dependencies]
-python = "^3.11"
-click = "^8.1.4"
-jinja2="*"
-python-dotenv="*"
+python = "*"
+click = "*"
+jinja2 = "*"
+python-dotenv = "*"
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.3.0"
-ipykernel="*"
+black = "*"
+ipykernel = "*"
 
 [build-system]
 requires = ["poetry-core"]
