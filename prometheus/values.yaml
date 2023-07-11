@@ -769,7 +769,7 @@ prometheus:
   ## let Prometheus know what its external URL is so that it can properly create links
   ## externalUrl: https://prometheus.example.com
   ##
-  externalUrl: "{| CV_PROM_EXTERNAL_URL |}"
+  externalUrl: "<| CV_PROM_EXTERNAL_URL |>"
   ## @param prometheus.resources CPU/Memory resource requests/limits for node
   ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
   ##
@@ -935,7 +935,7 @@ prometheus:
   ## If {}, select all ServiceMonitors
   ##
   ruleSelector: 
-    {| CV_PROM_RULE_SELECTOR |}
+    <| CV_PROM_RULE_SELECTOR |>
     
   ## @param prometheus.serviceMonitorSelector ServiceMonitors to be selected for target discovery
   ## If {}, select all ServiceMonitors
@@ -979,7 +979,7 @@ prometheus:
   ## See https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#prometheusspec
   ## ref: https://prometheus.io/docs/prometheus/latest/storage/#compaction
   ##
-  disableCompaction: {| CV_PROM_DISABLE_COMPACTION |}
+  disableCompaction: <| CV_PROM_DISABLE_COMPACTION |>
   ## @param prometheus.walCompression Enable compression of the write-ahead log using Snappy
   ##
   walCompression: false
@@ -1129,15 +1129,15 @@ prometheus:
   ## @param prometheus.additionalScrapeConfigs.internal.jobList A list of Prometheus scrape jobs
   ##
   additionalScrapeConfigs:
-    enabled: {| CV_PROM_ADDITIONAL_SCRAPE_CONFIGS_ENABLED |}
+    enabled: <| CV_PROM_ADDITIONAL_SCRAPE_CONFIGS_ENABLED |>
     type: external
     external:
       ## Name of the secret that Prometheus should use for the additional scrape configuration
       ##
-      name: "{| CV_PROM_ADDITIONAL_SCRAPE_CONFIGS_NAME |}"
+      name: "<| CV_PROM_ADDITIONAL_SCRAPE_CONFIGS_NAME |>"
       ## Name of the key inside the secret to be used for the additional scrape configuration.
       ##
-      key: "{| CV_PROM_ADDITIONAL_SCRAPE_CONFIGS_KEY |}"
+      key: "<| CV_PROM_ADDITIONAL_SCRAPE_CONFIGS_KEY |>"
     internal:
       jobList: []
   ## @param prometheus.additionalScrapeConfigsExternal.enabled Deprecated: Enable additional scrape configs that are managed externally to this chart
@@ -1173,7 +1173,7 @@ prometheus:
   thanos:
     ## @param prometheus.thanos.create Create a Thanos sidecar container
     ##
-    create: {| CV_PROM_THANOS_CREATE |}
+    create: <| CV_PROM_THANOS_CREATE |>
     ## Bitnami Thanos image
     ## ref: https://hub.docker.com/r/bitnami/thanos/tags/
     ## @param prometheus.thanos.image.registry Thanos image registry
@@ -2048,7 +2048,7 @@ alertmanager:
   ## @param alertmanager.configSelector Namespaces to be selected for AlertmanagerConfig discovery. If nil, only check own namespace. This defaults to {}
   ##
   configSelector: 
-    {| CV_ALERT_RULE_SELECTOR |}
+    <| CV_ALERT_RULE_SELECTOR |>
   ## @param alertmanager.configuration EXPERIMENTAL: alertmanagerConfiguration specifies the global Alertmanager configuration. If defined, it takes precedence over the `configSecret` field. This field may change in future releases. The specified global alertmanager config will not force add a namespace label in routes and inhibitRules
   ##
   configuration: {}
@@ -2804,3 +2804,4 @@ kubeProxy:
 rbac:
   create: true
   pspEnabled: true
+

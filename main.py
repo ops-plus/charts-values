@@ -28,8 +28,8 @@ def render(folder, file, verbose):
     """render a folder"""
     env = Environment(
         loader=FileSystemLoader(folder),
-        variable_start_string="{|",
-        variable_end_string="|}",
+        variable_start_string="<|",
+        variable_end_string="|>",
     )
 
     if file:
