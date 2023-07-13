@@ -33,7 +33,7 @@ additionalContainers: {}
 
 ingress:
   enabled: true
-  ingressClassName: "CV_AK_INGRESS_CLASS_NAME"
+  ingressClassName: "<| CV_AK_INGRESS_CLASS_NAME |>"
   annotations: 
     cert-manager.io/cluster-issuer: "<| CV_AK_CLUSTER_ISSUER |>"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "<| CV_AK_INGRESS_FORCE_SSL_REDIRECT |>"
