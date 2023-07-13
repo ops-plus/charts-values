@@ -111,8 +111,8 @@ authentik:
   redis:
     # -- set the redis hostname to talk to
     # @default -- `{{ .Release.Name }}-redis-master`
-    host: "{{ .Release.Name }}-redis-master"
-    password: ""
+    host: "<| CV_AK_REDIS_HOST | default('{{ .Release.Name }}-redis-master', true) |>"
+    password: "<| CV_AK_REDIS_PASSWORD |>"
 
 # -- List of config maps to mount blueprints from. Only keys in the
 # configmap ending with ".yaml" wil be discovered and applied
