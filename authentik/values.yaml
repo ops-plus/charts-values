@@ -19,7 +19,7 @@ worker:
 
 image:
   repository: ghcr.io/goauthentik/server
-  tag: 2023.5.4
+  tag: 2023.6.1
   # -- optional container image digest
   digest: ""
   pullPolicy: IfNotPresent
@@ -99,15 +99,15 @@ authentik:
     # -- set the postgresql hostname to talk to
     # if unset and .Values.postgresql.enabled == true, will generate the default
     # @default -- `{{ .Release.Name }}-postgresql`
-    host: "{{ .Release.Name }}-postgresql"
+    host: "<| CV_AK_PG_HOST |>"
     # -- postgresql Database name
     # @default -- `authentik`
     name: "authentik"
     # -- postgresql Username
     # @default -- `authentik`
     user: "authentik"
-    password: ""
-    port: 5432
+    password: "<| CV_AK_PG_PASSWORD |>"
+    port: <| CV_AK_PG_PORT |>
   redis:
     # -- set the redis hostname to talk to
     # @default -- `{{ .Release.Name }}-redis-master`
@@ -208,6 +208,8 @@ serviceAccount:
     # -- As we use the authentik-remote-cluster chart as subchart, and that chart
     # creates a service account secret by default which we don't need here, disable its creation
     enabled: false
+  fullnameOverride: authentik
+  nameOverride: authentik
 
 prometheus:
   serviceMonitor:
