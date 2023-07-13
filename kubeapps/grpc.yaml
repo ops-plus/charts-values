@@ -1,0 +1,27 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: kubeapps-grpc
+  namespace: kubeapps
+spec:
+  virtualhost:
+    fqdn: <| CV_KUBEAPPS_HOSTNAME |>
+    tls:
+      secretName: <| CV_KUBEAPPS_HOSTNAME |>-tls
+  routes:
+    - timeoutPolicy:
+        response: 60s
+        idle: 120s
+        idleConnection: 120s
+      conditions:
+        - prefix: /apis/
+      pathRewritePolicy:
+        replacePrefix:
+          - replacement: /
+      services:
+        - name: kubeapps-internal-kubeappsapis
+          port: 8080
+          protocol: h2c
+    - services:
+        - name: kubeapps
+          port: 80
