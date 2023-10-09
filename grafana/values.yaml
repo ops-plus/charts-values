@@ -212,9 +212,9 @@ ldap:
 ## @param config.grafanaIniSecret Name of the Secret containing the `grafana.ini` file
 ##
 config:
-  useGrafanaIniFile: true
-  grafanaIniConfigMap: "grafana-config"
-  grafanaIniSecret: "grafana"
+  useGrafanaIniFile: false
+  grafanaIniConfigMap: ""
+  grafanaIniSecret: ""
 ## Create dasboard provider to load dashboards, a default one is created to load dashboards
 ## from "/opt/bitnami/grafana/dashboards"
 ## @param dashboardsProvider.enabled Enable the use of a Grafana dashboard provider
